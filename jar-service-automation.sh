@@ -3,6 +3,10 @@ warFile=$1
 serverPort=$2
 action=$3
 
+remove_temp_file(){
+    rm -rf temp.text 
+}
+
 stop_service(){
         echo "Stopping application"
         touch temp.text
@@ -15,6 +19,7 @@ stop_service(){
         else
         echo "Sorry nothing running on $serverPort port"
         fi
+        remove_temp_file
     }
 
 start_service(){
@@ -33,7 +38,7 @@ is_running(){
         else
             return 1
         fi
-        
+        remove_temp_file
 }
 
 case $action in
