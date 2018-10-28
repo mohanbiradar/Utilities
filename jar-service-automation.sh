@@ -4,7 +4,7 @@ serverPort=$2
 action=$3
 
 stop_service(){
-        echo –n "Stopping application"
+        echo "Stopping application"
         touch temp.text
         lsof -n -i TCP:$serverPort | awk '{print $2}' > temp.text
         pidToStop=`(sed '2q;d' temp.text)`> temp.text
@@ -18,7 +18,7 @@ stop_service(){
     }
 
 start_service(){
-        echo –n "Starting application"
+        echo "Starting application"
         nohup java -Dserver.port=$serverPort -jar $warFile & > /dev/null &
         echo "Congrats!! application is started on port $serverPort."
     }
@@ -43,7 +43,6 @@ case $action in
                 echo "Already running on port $serverPort with pid $pidToStop"
                 exit 1
             else
-                echo "Starting application"
                 start_service         
         fi
         ;;
@@ -59,3 +58,4 @@ case $action in
     exit 1
     ;;
 esac
+   
