@@ -4,7 +4,8 @@ serverPort=$2
 action=$3
 
 remove_temp_file(){
-    rm -rf temp.text 
+    rm temp.text 
+    echo "deleted temp text file"
 }
 
 stop_service(){
