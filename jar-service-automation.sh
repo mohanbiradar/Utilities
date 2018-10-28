@@ -11,7 +11,7 @@ stop_service(){
         if [[ -n $pidToStop ]]
         then
         kill -9 $pidToStop
-        echo "Congrats!! $serverPort  is stopped having pid $pidToStop."
+        echo "Congrats!! application running on port $serverPort with pid $pidToStop is stopped."
         else
         echo "Sorry nothing running on $serverPort port"
         fi
@@ -58,4 +58,3 @@ case $action in
     exit 1
     ;;
 esac
-   
