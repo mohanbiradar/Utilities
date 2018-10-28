@@ -4,7 +4,7 @@ serverPort=$2
 action=$3
 
 remove_temp_file(){
-    rm -rf temp.text 
+    rm temp.text 
 }
 
 stop_service(){
